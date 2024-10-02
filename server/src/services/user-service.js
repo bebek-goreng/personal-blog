@@ -1,7 +1,7 @@
 import { UserRepositories } from "../repositories/user-repository.js";
 import { Jwt } from "../utils/jwt.js";
 
-export class UserController {
+export class UserServices {
     static async login(data) {
         const user = await UserRepositories.login(data.email);
 
