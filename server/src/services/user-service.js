@@ -1,4 +1,5 @@
 import { UserRepositories } from "../repositories/user-repository.js";
+import { Bcrypt } from "../utils/bcrypt.js";
 import { Jwt } from "../utils/jwt.js";
 
 export class UserServices {

@@ -1,5 +1,5 @@
 export function errorHandler(err, req, res, next) {
-    console.error(err);
+    console.log(err);
 
     const errorStatus = err.status || 500;
     const errorMessage = err.message || 'internal server error';
