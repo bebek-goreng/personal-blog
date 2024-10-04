@@ -18,6 +18,7 @@ model User {
   username  String    @unique
   email     String    @unique
   password  String
+  role      Role      @default(User)
   posts     Post[]
   comments  Comment[]
   likes     Like[]
@@ -81,4 +82,9 @@ model Like {
   updatedAt DateTime? @updatedAt
   post      Post      @relation(fields: [postId], references: [id])
   user      User      @relation(fields: [userId], references: [id])
+}
+
+enum Role {
+  Admin
+  User
 }

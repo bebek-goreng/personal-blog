@@ -3,10 +3,9 @@ import { Bcrypt } from "../utils/bcrypt.js";
 
 export class UserRepositories {
     static async login(data) {
-        const { email } = data;
         const user = await prisma.user.findUnique({
             where: {
-                email: email
+                email: data
             }
         });
 
