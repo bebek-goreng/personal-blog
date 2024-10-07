@@ -7,7 +7,10 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         const generateRandomId = uuid();
-        const fileName = file.originalname.toLowerCase().split(' ').join('-');
+        const fileName = file.originalname
+            .toLowerCase()
+            .split(' ')
+            .join('-');
         cb(null, `${generateRandomId}-${fileName}`)
     }
 });

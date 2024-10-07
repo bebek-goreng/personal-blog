@@ -27,19 +27,19 @@ model User {
 }
 
 model Post {
-  id               Int            @id @default(autoincrement())
-  userId           Int
-  title            String
-  content          String
-  slug             String         @unique
-  featuredImageUrl String?
-  publishedAt      DateTime?
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime?      @updatedAt
-  user             User           @relation(fields: [userId], references: [id])
-  comments         Comment[]
-  postCategories   PostCategory[]
-  likes            Like[]
+  id             Int            @id @default(autoincrement())
+  userId         Int
+  title          String
+  content        String
+  slug           String
+  imageUrl       String[]
+  publishedAt    DateTime       @default(now())
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime?      @updatedAt
+  user           User           @relation(fields: [userId], references: [id])
+  comments       Comment[]
+  postCategories PostCategory[]
+  likes          Like[]
 }
 
 model Comment {
@@ -55,8 +55,7 @@ model Comment {
 
 model Category {
   id             Int            @id @default(autoincrement())
-  name           String         @unique
-  description    String?
+  name           CategoryList
   createdAt      DateTime       @default(now())
   updatedAt      DateTime?      @updatedAt
   postCategories PostCategory[]
@@ -87,4 +86,20 @@ model Like {
 enum Role {
   Admin
   User
+}
+
+enum CategoryList {
+  Lifestyle
+  Travel
+  Technology
+  PersonalDevelopment
+  Food
+  HealthAndFitness
+  FinanceAndInvestment
+  Fashion
+  Entertainment
+  EducationAndCareer
+  CreativeWriting
+  Photography
+  OpinionsAndReflections
 }
